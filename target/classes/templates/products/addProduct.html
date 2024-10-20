@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ENLACE AL DOCUMENTO DE ESTILOS ".css" -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Lista Compra</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Añadir Producto</h2>
+
+      <form method="post" class="user-input-section" th:object="${productDto}">
+        <input
+          maxlength="20"
+          autofocus
+          th:field="${productDto.name}"
+          type="text"
+          placeholder="Añadir..."
+          required
+        />
+
+        <button type="submit">
+          <img src="./assets/add.svg" alt="Añadir" />
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

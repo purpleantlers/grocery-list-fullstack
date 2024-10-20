@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ENLACE AL DOCUMENTO DE ESTILOS ".css" -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Lista Compra</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Lista</h2>
+
+      <a class="add-btn" href="/add">
+        <img src="assets/add.svg" alt="Añadir" title="Añadir Producto" />
+      </a>
+
+      <section>
+        <ul class="list" th:each="products : ${products}">
+          <div class="list-element">
+            <li th:text="${products.name}"></li>
+            <a class="delete-btn" th:href="@{delete(id=${products.id})}">
+              <img src="assets/bin.svg" alt="" />
+            </a>
+          </div>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
